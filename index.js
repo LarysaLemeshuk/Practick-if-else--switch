@@ -1,76 +1,105 @@
-// 1. Вивести в консоль квадрати чисел від 1 до 10 (за допомогою циклу)
+//1. Вивести всі елементи масиву в консоль:
 
-for (let i = 1; i <= 10; i++) {
-    console.log(i * i);
+let arr = [10, 'hello', 42, 'world'];
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
 }
 
 
-//2. Написати функцію, яка запитує через prompt пароль користувача, порівнює його з тим, який у неї збережений (захардкоджений у константі).
-// Якщо пароль співпав - виводить на консоль “Ви успішно увійшли в систему”, якщо ні - продовжує запитувати пароль і перевіряти, поки не введуть правильно (за допомогою вічного цикла)
+// 2. Вивести всі парні числа з масиву:
 
-function checkPassword() {
-    const CORRECT_PASSWORD = "12345"; 
-    let input;
-    
-    while (true) {
-        input = prompt("Введіть пароль:");
-        if (input === CORRECT_PASSWORD) {
-            console.log("Ви успішно увійшли в систему");
-            break;
-        }
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+for (let num of numbers) {
+  if (num % 2 === 0) {
+    console.log(num);
+  }
+}
+
+
+//3. Об’єднати два масиви:
+
+let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
+let merged = arr1.concat(arr2);
+console.log(merged);
+
+
+// 4. Перевернути масив:
+
+let reversedArr = [6, 5, 4].reverse();
+console.log(reversedArr);
+
+
+// 5. Додати елементи в кінець масиву:
+
+let arr3 = [1, 2, 3];
+arr3.push(4, 5, 6);
+console.log(arr3);
+
+
+// 6. Додати елементи на початок масиву:
+
+let arr4 = [7, 8, 9];
+arr4.unshift(1, 2, 3);
+console.log(arr4);
+
+
+// 7. Вивести перший елемент і видалити його:
+
+let arr5 = ['aaa', 'bbb', 'ccc'];
+console.log(arr5.shift());
+console.log(arr5);
+
+
+//8. Вивести останній елемент і видалити його:
+
+let arr6 = ['aaa', 'bbb', 'ccc'];
+console.log(arr6.pop());
+console.log(arr6);
+
+
+// 9. Скопіювати з другого по п’ятий елементи в новий масив:
+
+let arr7 = [9, 10, 11, 12, 13];
+let newArr = arr7.slice(1, 5);
+console.log(newArr);
+
+
+// 10. Зробити з масиву [1, 2, 3, 4, 5] масив [1, 4, 5]:
+
+let arr8 = [1, 2, 3, 4, 5];
+arr8.splice(1, 2);
+console.log(arr8);
+
+
+// 11. Скопіювати [3, 4, 5] у новий масив:
+
+let arr9 = [1, 2, 3, 4, 5];
+let copiedArr = arr9.slice(2);
+console.log(copiedArr);
+
+
+// 12. Оновити масив, додавши елементи в середину:
+
+let arr10 = [1, 2, 3, 4, 5];
+arr10.splice(1, 0, 'w', 'trtr');
+arr10.splice(6, 0, 'vvv', 'a', 'hello');
+console.log(arr10);
+
+
+// 13. Підрахунок голосних у рядку
+
+function countVowels(str, vowelsArray) {
+  let count = 0;
+  for (let char of str.toLowerCase()) {
+    if (vowelsArray.includes(char)) {
+      count++;
     }
+  }
+  return count;
 }
 
-checkPassword();
+let vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
 
-
-
-// 3. Обчислити сумму чисел від 1 до 100 і вивести її в консоль
-
-let sum = 0;
-for (let i = 1; i <= 100; i++) {
-    sum += i;
-}
-console.log("Сума чисел від 1 до 100:", sum);
-
-
-
-// 4. Вивести числа від 10 до 50, які кратні 5.
-
-for (let i = 10; i <= 50; i += 5) {
-    console.log(i);
-}
-
-
-
-// 5. Намалювати в консолі символами “*” трикутник заданого користувачем розміру
-
-// function drawTriangle(size) {
-//     for (let i = 1; i <= size; i++) {
-//         console.log("*".repeat(i));
-//     }
-// }
-
-// let size = parseInt(prompt("Введіть розмір трикутника:"));
-// drawTriangle(size);
-
- 
-// 6. Намалювати пустий квадрат з діагоналлю (зліва зверху - до права низу)
-
-function squareWithDiagonal(size) {
-    for (let i = 0; i < size; i++) {
-        let row = '';
-        for (let j = 0; j < size; j++) {
-            if (i === 0 || i === size - 1 || j === 0 || j === size - 1 || i === j) {
-                row += '*';
-            } else {
-                row += '';
-            }
-        }
-        console.log(row);
-    }
-}
-
-let squareSize = parseInt(prompt('Введіть розмір квадрата'));
-
-squareWithDiagonal(squareSize);
+console.log(countVowels('hello to you', vowels)); // 6
+console.log(countVowels('lorem ipsum dolor sit amet', vowels)); // 9
