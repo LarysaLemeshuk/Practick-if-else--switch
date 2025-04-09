@@ -1,47 +1,84 @@
-//1. Вивести рядок задом наперед:
+class Book {
+  constructor(author, title, year, pages, shelfNumber = null, userId = null) {
+    this.author = author;
+    this.title = title;
+    this.year = year;
+    this.pages = pages;
+    this.shelfNumber = shelfNumber;
+    this.userId = userId;
+  }
 
-function reverseString(str) {
-  return str.split('').reverse().join('');
+  isVacant() {
+    return this.shelfNumber !== null && this.userId === null;
+  }
+
+  getRent(userId) {
+    if (this.isVacant()) {
+      this.userId = userId;
+      this.shelfNumber = null;
+    } else {
+      console.log('Книгу вже взяли.');
+    }
+  }
 }
 
-console.log(reverseString('Hello, world!'));
-
-//2. Функція для отримання лише цілої частини числа:
-
-function getIntegerPart(num) {
-  return Math.trunc(num);
-}
-
-console.log(getIntegerPart(10.56)); 
-console.log(getIntegerPart(-3.99)); 
-
-Math.trunc();
-
-
-//3. Отримати ім’я від користувача та вивести великими літерами:
-
-let userName = prompt ('Введіть ваше імʼя')
-if (userName) {
-  alert(userName.toUpperCase());
+class User {
+  constructor(id, name, lastName, address) {
+    this.id = id;
+    this.name = name;
+    this.lastName = lastName;
+    this.address = address;
+  }
 }
 
 
-//4. Функція для форматування дати:
+const user1 = new User(1, 'Лариса', 'Лемешук', 'м.Ковель Бульвар Лесі Уккраїнка 2/23');
+const book1 = new Book('Леся Українка', 'Лісова пісня', 1911, 150, 5);
 
-function formatDate(dateStr) {
-  let [year, day, month] = dateStr.split('-');
-  return `${day}.${month}.${year}`;
+console.log(book1.isVacant());
+book1.getRent(user1.id);
+console.log(book1); 
+console.log(book1.isVacant());
+
+
+
+
+class Animal {
+  hunting() {
+    console.log('Зараз дожену здобич');
+  }
+
+  growl() {
+    console.log('Грррррр');
+  }
 }
 
-console.log(formatDate('2021-22-09'));
+class Tiger extends Animal {
+  hunting() {
+    console.log('Тигр женеться за здобиччю');
+  }
 
-
-//5. Функція порівняння рядків без урахування регістру:
-
-function isEqual(str1, str2) {
-  return str1.toLowerCase() === str2.toLowerCase();
+  growl() {
+    console.log('Тигр: Рррр!');
+  }
 }
 
-console.log(isEqual('pApA', 'papa')); 
-console.log(isEqual('qwerty', 'QWErty')); 
-console.log(isEqual('aaa', 'EEE')); 
+class Wolf extends Animal {
+  hunting() {
+    console.log('Вовк вистежує здобич у зграї');
+  }
+
+  growl() {
+    console.log('Вовк: Уууууу!');
+  }
+}
+
+
+const tiger1 = new Tiger();
+const wolf1 = new Wolf();
+
+tiger1.hunting(); 
+tiger1.growl();  
+
+wolf1.hunting(); 
+wolf1.growl();    
