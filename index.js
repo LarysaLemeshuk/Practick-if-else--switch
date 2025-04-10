@@ -1,84 +1,19 @@
-class Book {
-  constructor(author, title, year, pages, shelfNumber = null, userId = null) {
-    this.author = author;
-    this.title = title;
-    this.year = year;
-    this.pages = pages;
-    this.shelfNumber = shelfNumber;
-    this.userId = userId;
-  }
+// Завдання 1 
+const section = document.createElement('section');
+section.setAttribute('id', 'root');
+section.textContent = 'Це створений section.';
+section.style.color = 'green';
+document.body.appendChild(section);
 
-  isVacant() {
-    return this.shelfNumber !== null && this.userId === null;
-  }
+// Завдання 2 
+const existingElement = document.getElementById('existingElement');
 
-  getRent(userId) {
-    if (this.isVacant()) {
-      this.userId = userId;
-      this.shelfNumber = null;
-    } else {
-      console.log('Книгу вже взяли.');
-    }
-  }
-}
+  existingElement.style.backgroundColor = 'purple';
+  existingElement.style.color = 'white';
 
-class User {
-  constructor(id, name, lastName, address) {
-    this.id = id;
-    this.name = name;
-    this.lastName = lastName;
-    this.address = address;
-  }
-}
+// Завдання 3 
+const userName = prompt('Введіть ваше ім’я:');
 
-
-const user1 = new User(1, 'Лариса', 'Лемешук', 'м.Ковель Бульвар Лесі Уккраїнка 2/23');
-const book1 = new Book('Леся Українка', 'Лісова пісня', 1911, 150, 5);
-
-console.log(book1.isVacant());
-book1.getRent(user1.id);
-console.log(book1); 
-console.log(book1.isVacant());
-
-
-
-
-class Animal {
-  hunting() {
-    console.log('Зараз дожену здобич');
-  }
-
-  growl() {
-    console.log('Грррррр');
-  }
-}
-
-class Tiger extends Animal {
-  hunting() {
-    console.log('Тигр женеться за здобиччю');
-  }
-
-  growl() {
-    console.log('Тигр: Рррр!');
-  }
-}
-
-class Wolf extends Animal {
-  hunting() {
-    console.log('Вовк вистежує здобич у зграї');
-  }
-
-  growl() {
-    console.log('Вовк: Уууууу!');
-  }
-}
-
-
-const tiger1 = new Tiger();
-const wolf1 = new Wolf();
-
-tiger1.hunting(); 
-tiger1.growl();  
-
-wolf1.hunting(); 
-wolf1.growl();    
+  const greeting = document.createElement('h1');
+  greeting.textContent = `Вітаю, ${userName}`;
+  //document.body.appendChild(greeting);
