@@ -1,19 +1,31 @@
-// Завдання 1
-const section = document.createElement('section');
-section.setAttribute('id', 'root');
-section.textContent = 'Це створений section.';
-section.style.color = 'green';
-document.body.appendChild(section);
+const alertButton = document.getElementById('alertButton');
 
-// Завдання 2
-const existingElement = document.getElementById('existingElement');
+alertButton.addEventListener('click', showAlert);
 
-existingElement.style.backgroundColor = 'purple';
-existingElement.style.color = 'white';
+function showAlert() {
+  alert('Привіт тобі, клацальщик!');
+}
 
-// Завдання 3
-const userName = prompt('Введіть ваше ім’я:');
+const createBtnLink = document.getElementById('createBtnLink');
 
-const greeting = document.createElement('h1');
-greeting.textContent = `Вітаю, ${userName}`;
-document.body.appendChild(greeting);
+const newButtonContainer = document.getElementById('newButtonContainer');
+
+createBtnLink.addEventListener('click', handleClick);
+
+function handleClick(event) {
+  event.preventDefault(newButtonContainer);
+
+  const newBtn = document.createElement('button');
+  newBtn.textContent = 'Нова кнопка';
+  newButtonContainer.appendChild(newBtn);
+}
+
+const lamp = document.getElementById('lamp');
+const lampToggle = document.getElementById('lampToggle');
+
+lampToggle.addEventListener('click', onLamp);
+
+function onLamp() {
+  lamp.style.backgroundColor = 'yellow';
+  lamp.style.borderColor = 'white';
+}
