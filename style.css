@@ -1,8 +1,105 @@
-.lamp{
-    width: 100px;
-    height: 100px;
-    background-color: gray;
-    border: 2px solid darkgray;
-    border-radius: 50%;
-    margin: 10px;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background: #e8bcb9;
+  margin: 0;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  background: #662549;
+  border-top: 27px solid #1D1A39;
+  padding: 50px ;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+}
+
+h1{
+  font-size: 80px;
+  font-style: italic;
+  color: #e8bcb9;
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+
+}
+
+form {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.task {
+  padding: 12px;
+  background-color: #e8bcb9;
+  border: 3px solid #1D1A39;
+  border-left: 7px solid #1D1A39;
+  border-radius: 6px;
+  font-size: 24px;
+  color: #1D1A39;
+}
+
+.btn {
+  background-color: #F39F5A;
+  color:#662549;
+  border: none;
+  padding: 19px ;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color:#f87c16;
+}
+
+#todo-list {
+  padding: 0;
+  margin: 0;
+}
+
+#todo-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e8bcb9;
+  padding: 10px ;
+  margin-bottom: 10px;
+  border-left: 7px solid #1D1A39;
+  border-radius: 6px;
+  color: #1D1A39;
+  font-size: 16;
+} 
+
+#todo-list li:hover {
+  background: #d6b8d0;
+}
+
+li input[type="checkbox"] {
+  margin-right: 12px;
+}
+
+li span {
+  font-size: 26px;
+}
+
+.remove-btn {
+  background-color: #ae445a;
+  color:  #1D1A39;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+ 
+}
+
+.remove-btn:hover {
+  background-color:#cb2143;
 }

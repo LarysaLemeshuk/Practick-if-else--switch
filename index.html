@@ -4,18 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="./index.js" defer></script>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <button id="alertButton">Натисни мене</button>
-
-    <section>
-      <a href="#https://biletserwis.pl/e/jennifer-lopez-up-all-night-2025/" id="createBtnLink">клікни, щоб зʼявилась кнопка</a>
-      <div id="newButtonContainer"></div>
-    </section>
-
-    <div class="lamp" id="lamp"></div>
-    <button id="lampToggle"></button>
-    <script src="./index.js"></script>
+    <div class="container">
+      <h1>To Do List</h1>
+      <form id="todo-form">
+        <input type="text" placeholder="Type your task" class="task" required/>
+        <button type="submit" class="btn">add task</button>
+      </form>
+      <ol id="todo-list"></ol>
+    </div>
   </body>
 </html>

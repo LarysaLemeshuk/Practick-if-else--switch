@@ -1,31 +1,48 @@
-const alertButton = document.getElementById('alertButton');
+const form = document.querySelector('#todo-form');
+const list = document.querySelector('#todo-list');
+let taskCount = 0;
 
-alertButton.addEventListener('click', showAlert);
+form.addEventListener('submit', addItem);
 
-function showAlert() {
-  alert('Привіт тобі, клацальщик!');
+function addItem(event) {
+  event.preventDefault();
+
+  if (taskCount === 10) {
+    alert('Ми досягли максимальної кількості завдань');
+    return;
+  }
+
+  const { target } = event;
+  const [todoInput] = target;
+  const value = todoInput.value.trim();
+
+  if (value === '') {
+    alert('Текст завдання не може бути порожньою стрічкою');
+    return;
+  }
+
+  const li = document.createElement('li');
+
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+
+  const taskText = document.createElement('span');
+  taskText.textContent = value;
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = 'remove task';
+  deleteBtn.classList.add('remove-btn');
+  deleteBtn.addEventListener('click', deleteHandler);
+
+  li.append(checkbox, taskText, deleteBtn);
+  list.append(li);
+
+  taskCount++;
+  form.reset();
 }
 
-const createBtnLink = document.getElementById('createBtnLink');
-
-const newButtonContainer = document.getElementById('newButtonContainer');
-
-createBtnLink.addEventListener('click', handleClick);
-
-function handleClick(event) {
-  event.preventDefault(newButtonContainer);
-
-  const newBtn = document.createElement('button');
-  newBtn.textContent = 'Нова кнопка';
-  newButtonContainer.appendChild(newBtn);
-}
-
-const lamp = document.getElementById('lamp');
-const lampToggle = document.getElementById('lampToggle');
-
-lampToggle.addEventListener('click', onLamp);
-
-function onLamp() {
-  lamp.style.backgroundColor = 'yellow';
-  lamp.style.borderColor = 'white';
+function deleteHandler(event) {
+  const li = event.target.parentNode;
+  li.remove();
+  taskCount--;
 }
